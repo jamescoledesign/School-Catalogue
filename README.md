@@ -1,2 +1,2 @@
-# School-Catalogue
-School Catalogue project for Codecademy
+# School Catalogue
+School Catalogue project for Codecademy.
