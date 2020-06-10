@@ -33,6 +33,14 @@ class School {
        
        const randomSub = Math.floor(substituteTeachers.length * Math.random());
 
-        return randomSub
+    return substituteTeachers[randomSub];
+    }
+}
+
+class PrimarySchool extends School {
+    constructor(name, numberOfStudents, pickupPolicy) {
+        super(name, numberOfStudents);
+        this._level = 'primary';
+        this._pickupPolicy = pickupPolicy;
     }
 }
