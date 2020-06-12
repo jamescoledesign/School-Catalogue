@@ -17,16 +17,17 @@ class School {
         return this._numberOfStudents;
     }
 
-    set numberOfStudents(input) {
-        if(typeof input === 'number') {
-            this._numberOfStudents = input;
+    set numberOfStudents(value) {
+        if (value.isNan) {
+            console.log('Invalid input: numberOfStudents must be set to a Number.');
         } else {
-            return 'Invalid input: numberOfStudents must be set to a Number.'
+            this._numberOfStudents = value;
         }
+
     }
 
     quickFacts() {
-        console.log(`${this_.name} educates ${this._numberOfStudents} at the ${this._level} school level.`);
+        console.log(`${this.name} educates ${this.numberOfStudents} students at the ${this.level} school level.`);
     }
 
     static pickSubstituteTeacher(substituteTeachers) {  
@@ -39,8 +40,7 @@ class School {
 
 class PrimarySchool extends School {
     constructor(name, numberOfStudents, pickupPolicy) {
-        super(name, numberOfStudents);
-        this._level = 'primary';
+        super(name, 'primary', numberOfStudents);
         this._pickupPolicy = pickupPolicy;
     }
 
@@ -59,3 +59,7 @@ class HighSchool extends School {
         return this._sportsTeams;
     }
 }
+
+const lorraineHansbury = new PrimarySchool('Lorraine Hansbury', 514, 'Students must be picked up by a parent, guardian, or a family member over the age of 13.');
+
+lorraineHansbury.quickFacts();
